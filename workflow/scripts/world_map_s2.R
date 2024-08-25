@@ -1,3 +1,5 @@
+#!/usr/bin/env Rscript
+
 library(sf)
 library(s2)
 library(ggplot2)

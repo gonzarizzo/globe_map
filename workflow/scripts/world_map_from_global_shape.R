@@ -1,3 +1,5 @@
+#!/usr/bin/env Rscript
+
 # author: Gonzalo Rizzo
 
 # setup ---------
