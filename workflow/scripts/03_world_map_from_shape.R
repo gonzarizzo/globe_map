@@ -51,7 +51,7 @@ grat <- sf::st_graticule(lon=seq(-180,180, 30),
 grat2 <- s2_intersection(b, grat) # visible graticulates
 
 # world map in base R
-pdf("results/base_cty_globe.pdf", 4, 4)
+png("results/base_shape.png")
 par(mar = c(1,1,1,1))
 plot(st_transform(st_as_sfc(i), paste0("+proj=ortho +lat_0=", lat, " +lon_0=", lon)), col = 'aliceblue')
 plot(st_transform(st_as_sfc(grat2), paste0("+proj=ortho +lat_0=", lat, " +lon_0=", lon)), col = 'black', add = T)
@@ -60,7 +60,7 @@ plot(st_transform(st_as_sfc(cty), paste0("+proj=ortho +lat_0=", lat, " +lon_0=",
 dev.off()
 
 # world map in ggplot language
-pdf("results/ggplot_cty_globe_100.pdf", 4, 4)
+png("results/ggplot_shape.png")
 ggplot() +
   geom_sf(data = st_transform(st_as_sfc(b), ortho), fill = '#FFFFFF', color = '#6E6E6F', alpha=1, linewidth = 0.5)+
   geom_sf(data=st_transform(st_as_sfc(grat2), ortho), color = '#6E6E6F', linewidth = 0.5) +
@@ -70,7 +70,7 @@ ggplot() +
         panel.background = element_rect(fill = NA))
 dev.off()
 
-tiff("results/cty_globe.tif", 4, 4, units = "in", res = 300)
+png("results/ggplot_shape_b.png", res = 300)
 ggplot() +
   geom_sf(data = circle, fill = '#FFFFFF', color = '#6E6E6F', alpha=1, linewidth = 0.5)+
   geom_sf(data=st_as_sfc(grat2), color = '#6E6E6F', linewidth = 0.5) +
