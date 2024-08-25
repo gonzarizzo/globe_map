@@ -11,9 +11,16 @@ library(ggplot2)
 co <- vect("resources/Large Scale/shp/Admin_0_polygons.shp")
 cty <- co[co$Name=='Uruguay']
 
-# center point of the map
-lat <- -30
-lon <- -50
+# Calculate the centroid of the cty polygon
+cty_centroid <- centroids(cty)
+
+# Reproject the centroid to WGS 84 (EPSG:4326)
+cty_centroid_wgs84 <- project(cty_centroid, "EPSG:4326")
+
+# Extract the latitude and longitude of the centroid
+coords <- crds(cty_centroid_wgs84)
+lon <- coords[1]
+lat <- coords[2]
 
 # visible half of the world
 b = s2_buffer_cells(as_s2_geography(paste0("POINT(", lon, " ", lat, ")")), 9800000) # visible half

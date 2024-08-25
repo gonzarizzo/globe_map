@@ -9,14 +9,22 @@ cty = s2_data_countries("Uruguay")
 # extract the oceans
 g = as_s2_geography(TRUE)
 oc = s2_difference(g, s2_union_agg(co)) # oceans
-plot(oc)
 
-# center point of the map
-lat = -30
-lon = -50
+# Find the centroid of the cty object
+cty_centroid = s2_centroid_agg(cty)
+
+# Convert the centroid to lat/lon coordinates
+lat_lon = s2_as_text(cty_centroid)
+
+# Extract the numeric coordinates from the WKT string
+coords <- as.numeric(unlist(strsplit(gsub("POINT \\(|\\)", "", lat_lon), " ")))
+
+# Store the coordinates in lon and lat objects
+lon <- coords[1]
+lat <- coords[2]
 
 # visible half of the world
-b = s2_buffer_cells(as_s2_geography(paste0("POINT(", lon, " ", lat, ")")), 9800000) # visible half
+b = s2_buffer_cells(as_s2_geography(paste0(lat_lon)), 9800000) # visible half
 
 # intersect the visible oceans and visible countries
 i = s2_intersection(b, oc) # visible ocean
