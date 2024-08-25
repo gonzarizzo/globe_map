@@ -10,7 +10,7 @@ library(s2)
 library(ggplot2)
 
 # read world shapefile
-co <- vect("resources/Large Scale/shp/Admin_0_polygons.shp")
+co <- vect("resources/Admin_0_polygons.shp")
 cty <- co[co$Name=='Uruguay']
 
 # Calculate the centroid of the cty polygon
