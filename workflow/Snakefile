@@ -26,6 +26,8 @@ rule download_shapefiles:
         shx = "resources/Admin_0_Polygons.shx"
     log:
         "logs/download_shapefiles.log"
+    conda:
+        "envs/environment.yml"
     shell:
         "{input.script} > {log} 2>&1"
 
