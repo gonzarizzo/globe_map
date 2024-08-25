@@ -45,12 +45,15 @@ grat <- sf::st_graticule(lon=seq(-180,180, 30),
 grat2 = s2_intersection(b, grat) # visible graticulates
 
 # world map in base R
+png("results/base_s2.png")
 plot(st_transform(st_as_sfc(i), paste0("+proj=ortho +lat_0=", lat, " +lon_0=", lon)), col = 'aliceblue')
 plot(st_transform(st_as_sfc(grat2), paste0("+proj=ortho +lat_0=", lat, " +lon_0=", lon)), col = 'black', add = T)
 plot(st_transform(st_as_sfc(i2), paste0("+proj=ortho +lat_0=", lat, " +lon_0=", lon)), col = 'gray', add = T)
 plot(st_transform(st_as_sfc(cty), paste0("+proj=ortho +lat_0=", lat, " +lon_0=", lon)), col = 'darkgreen', add = T)
+dev.off()
 
 # world map in ggplot language
+png("results/ggplot_s2.png")
 ggplot() +
   geom_sf(data=st_as_sfc(grat2), color = 'black') +
   geom_sf(data = circle, fill = 'aliceblue', alpha=0.5)+
@@ -59,3 +62,4 @@ ggplot() +
   coord_sf(crs = ortho) +
   theme(panel.grid.major = element_blank(),
         panel.background = element_rect(fill = NA))
+dev.off()
