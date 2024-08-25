@@ -10,17 +10,25 @@ rule all:
 
 rule world_map_s2:
     input:
-        "02_world_map_s2.R"
+        script = "scripts/02_world_map_s2.R"
     output:
         "outputs/world_map_s2.png"
-    script:
-        "02_world_map_s2.R"
+    log:
+        "logs/world_map_s2.log"
+    conda:
+        "envs/environment.yml"
+    shell:
+        "{input.script} > {log} 2>&1"
 
 rule world_map_from_global_shape:
     input:
         "resources/Large Scale/shp/Admin_0_polygons.shp",
-        "03_world_map_from_global_shape.R"
+        script = "scripts/03_world_map_from_global_shape.R"
     output:
         "outputs/world_map_from_global_shape.png"
-    script:
-        "03_world_map_from_global_shape.R"
+     log:
+        "logs/world_map_from_global_shape.log"
+    conda:
+        "envs/environment.yml"
+    shell:
+        "{input.script} > {log} 2>&1"
