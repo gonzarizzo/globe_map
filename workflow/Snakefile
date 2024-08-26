@@ -5,17 +5,18 @@
 
 rule all:
     input:
-        "results/base_s2.png",
-        "results/ggplot_shape.png",
-        "results/base_shape.png",
-        "results/ggplot_shape_b.png",
         "resources/Admin_0_polygons.CPG",
         "resources/Admin_0_polygons.dbf",
         "resources/Admin_0_polygons.prj",
         "resources/Admin_0_polygons.sbn",
         "resources/Admin_0_polygons.sbx",
         "resources/Admin_0_polygons.shp",
-        "resources/Admin_0_polygons.shx"
+        "resources/Admin_0_polygons.shx",
+        "results/base_s2.png",
+        "results/ggplot_s2.png",
+        "results/base_shape.png",
+        "results/ggplot_shape.png",
+        "results/ggplot_shape_b.png"
 
 rule download_shapefiles:
     input:
