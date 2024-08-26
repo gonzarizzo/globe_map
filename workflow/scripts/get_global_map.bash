@@ -7,7 +7,7 @@ mkdir resources/
 
 # download shapefiles, unzip shape and remove zip file
 wget -O resources/moriarty-hand.zip $url \
-&& unzip -j resources/moriarty-hand.zip \
+&& unzip -o -j resources/moriarty-hand.zip \
     "Small Scale/shp/Admin_0_polygons.CPG" \
     "Small Scale/shp/Admin_0_polygons.dbf" \
     "Small Scale/shp/Admin_0_polygons.prj" \
