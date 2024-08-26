@@ -9,21 +9,25 @@ rule all:
         "results/ggplot_shape.png",
         "results/base_shape.png",
         "results/ggplot_shape_b.png",
-        "resources/Admin_0_Polygons.CPG",
-        "resources/Admin_0_Polygons.dbf",
-        "resources/Admin_0_Polygons.prj",
-        "resources/Admin_0_Polygons.shp",
-        "resources/Admin_0_Polygons.shx"
+        "resources/Admin_0_polygons.CPG",
+        "resources/Admin_0_polygons.dbf",
+        "resources/Admin_0_polygons.prj",
+        "resources/Admin_0_polygons.sbn",
+        "resources/Admin_0_polygons.sbx",
+        "resources/Admin_0_polygons.shp",
+        "resources/Admin_0_polygons.shx"
 
 rule download_shapefiles:
     input:
         script = "workflow/scripts/get_global_map.bash"
     output:
-        cpg = "resources/Admin_0_Polygons.CPG",
-        dbf = "resources/Admin_0_Polygons.dbf",
-        prj = "resources/Admin_0_Polygons.prj",
-        shp = "resources/Admin_0_Polygons.shp",
-        shx = "resources/Admin_0_Polygons.shx"
+        "resources/Admin_0_polygons.CPG",
+        "resources/Admin_0_polygons.dbf",
+        "resources/Admin_0_polygons.prj",
+        "resources/Admin_0_polygons.sbn",
+        "resources/Admin_0_polygons.sbx",
+        "resources/Admin_0_polygons.shp",
+        "resources/Admin_0_polygons.shx"
     log:
         "logs/download_shapefiles.log"
     conda:
