@@ -5,11 +5,36 @@
 
 rule all:
     input:
+        "resources/Admin_0_polygons.CPG",
+        "resources/Admin_0_polygons.dbf",
+        "resources/Admin_0_polygons.prj",
+        "resources/Admin_0_polygons.sbn",
+        "resources/Admin_0_polygons.sbx",
+        "resources/Admin_0_polygons.shp",
+        "resources/Admin_0_polygons.shx",
         "results/base_s2.png",
         "results/ggplot_s2.png",
         "results/base_shape.png",
         "results/ggplot_shape.png",
         "results/ggplot_shape_b.png"
+
+rule download_shapefiles:
+    input:
+        script="workflow/scripts/get_global_map.bash"
+    output:
+        "resources/Admin_0_polygons.CPG",
+        "resources/Admin_0_polygons.dbf",
+        "resources/Admin_0_polygons.prj",
+        "resources/Admin_0_polygons.sbn",
+        "resources/Admin_0_polygons.sbx",
+        "resources/Admin_0_polygons.shp",
+        "resources/Admin_0_polygons.shx"
+    log:
+        "logs/download_shapefiles.log"
+    conda:
+        "envs/environment.yml"
+    shell:
+        "{input.script} > {log} 2>&1"
 
 rule world_map_s2:
     input:
