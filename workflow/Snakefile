@@ -13,7 +13,7 @@ rule all:
 
 rule world_map_s2:
     input:
-        script = "workflow/scripts/02_world_map_s2.R"
+        script = "scripts/02_world_map_s2.R"
     output:
         "results/base_s2.png",
         "results/ggplot_s2.png"
@@ -27,7 +27,7 @@ rule world_map_s2:
 rule world_map_from_global_shape:
     input:
         "resources/Admin_0_polygons.shp",
-        script = "workflow/scripts/03_world_map_from_global_shape.R"
+        script = "scripts/03_world_map_from_global_shape.R"
     output:
         "results/base_shape.png",
         "results/ggplot_shape.png",
