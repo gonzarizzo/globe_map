@@ -20,7 +20,7 @@ rule all:
 
 rule download_shapefiles:
     input:
-        script="workflow/scripts/get_global_map.bash"
+        script="workflow/scripts/01_get_global_map.bash"
     output:
         "resources/Admin_0_polygons.CPG",
         "resources/Admin_0_polygons.dbf",
