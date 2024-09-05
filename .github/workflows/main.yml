@@ -37,7 +37,14 @@ jobs:
       - Linting
       - Formatting
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout repostory
+      uses: actions/checkout@v2
+
+    - name: Give excecute permission to run 02_world_map_s2.R script
+      run: chmod +x workflow/scripts/02_world_map_s2.R
+
+    - name: Give excecute permission to run 03_world_map_from_shape.R script
+      run: chmod +x workflow/scripts/03_world_map_from_shape.R
 
     - name: Test workflow
       uses: snakemake/snakemake-github-action@v1.24.0
