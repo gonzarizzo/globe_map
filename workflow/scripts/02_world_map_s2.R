@@ -1,4 +1,4 @@
-#!/usr/bin/env Rscript
+#!env Rscript
 
 library(sf)
 library(s2)

@@ -1,4 +1,4 @@
-#!/usr/bin/env Rscript
+#!env Rscript
 
 # author: Gonzalo Rizzo
 
