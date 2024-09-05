@@ -40,6 +40,9 @@ jobs:
     - name: Checkout repostory
       uses: actions/checkout@v2
 
+    - name: Give excecute permission to run get_global_map.bash script
+      run: chmod +x workflow/scripts/get_global_map.bash
+      
     - name: Give excecute permission to run 02_world_map_s2.R script
       run: chmod +x workflow/scripts/02_world_map_s2.R
 

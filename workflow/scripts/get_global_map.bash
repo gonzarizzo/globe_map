@@ -1,4 +1,4 @@
-#!env bash
+#!/usr/bin/env bash
 
 url="https://giscollective.s3.amazonaws.com/projectlinework/moriarty-hand.zip"
 
