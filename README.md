@@ -1,7 +1,7 @@
 # Snakemake workflow: `Globe_map`
 
 [![Snakemake](https://img.shields.io/badge/snakemake-≥6.3.0-brightgreen.svg)](https://snakemake.github.io)
-[![GitHub actions status](https://github.com/gonzarizzo/globe_map/workflows/Tests/badge.svg?branch=main)](https://github.com/gonzarizzo/globe_map/actions?query=branch%3Amain+workflow%3ATests)
+[![GitHub actions status](https://github.com/gonzarizzo/globe_map/workflows/Tests/badge.svg?branch=main)](https://github.com/gonzarizzo/globe_map/actions?query=branch%3Amain+workflow%3ATests+is%3Asuccess)
 
 
 A Snakemake workflow for `<description>`
